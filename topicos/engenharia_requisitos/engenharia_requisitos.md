@@ -13,6 +13,7 @@ Neste arquivo será apresentado os `casos de uso`, `diagrama de casos de uso` e 
   2. cliente informa email;
   3. cliente informa cpf;
   4. cliente informa senha;
+
   *extensões*:
   3a. se o cpf for invalido, informar um novo;
   
@@ -24,6 +25,7 @@ Neste arquivo será apresentado os `casos de uso`, `diagrama de casos de uso` e 
   3. Cliente escolhe os tipos de serviços (tipo do corte, qual cabelereiro(a), etc);
   4. Cliente visualiza o preço total e o tempo estimado para os serviços selecionados;
   5. Cliente escolhe seu horário e confirma;
+
   *extensões*
   5a. caso o cliente esteja com multas pendentes o agendamento não é confirmado;
 
@@ -42,6 +44,7 @@ Neste arquivo será apresentado os `casos de uso`, `diagrama de casos de uso` e 
   4. o sistema valida a transação;
   5. o sistema confirma a quitação da multa;
   6. o cliente é liberado para realizar novos agendamentos;
+
   *extensão*
   3a. caso os dados forem incorretos, informar de novo;
 
@@ -89,6 +92,7 @@ Neste arquivo será apresentado os `casos de uso`, `diagrama de casos de uso` e 
   *fluxo normal*
   1. barbeiro visualiza seu dashboard com a lista de clientes e horarios que foram agendados;
   2. confirmar se o cliente compareceu;
+  
   *extensões*
   2.a caso o cliente não comparecer, o Cabelereiro(a) deve registrar no sistema;
 
