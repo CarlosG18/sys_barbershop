@@ -15,7 +15,7 @@ Neste arquivo será apresentado os `casos de uso`, `diagrama de casos de uso` e 
   4. cliente informa senha;
 
   *extensões*:
-  3a. se o cpf for invalido, informar um novo;
+  - 3a. se o cpf for invalido, informar um novo;
   
 > **AGENDAR**:
 
@@ -26,27 +26,11 @@ Neste arquivo será apresentado os `casos de uso`, `diagrama de casos de uso` e 
   4. Cliente visualiza o preço total e o tempo estimado para os serviços selecionados;
   5. Cliente escolhe seu horário e confirma;
 
-  *extensões*
-  5a. caso o cliente esteja com multas pendentes o agendamento não é confirmado;
-
 > **EXCLUIR AGENDAMENTO**
 
   *fluxo normal*
   1. Cliente poderá ver seus agendamentos ativos;
   2. Cliente poderá excluir agendamentos;
-
-> **PAGAR MULTA**
-
-  *fluxo normal*
-  1. cliente visualiza o valor da multa;
-  2. cliente escolhe a forma de pagamento;
-  3. cliente coloca os dados para a transação;
-  4. o sistema valida a transação;
-  5. o sistema confirma a quitação da multa;
-  6. o cliente é liberado para realizar novos agendamentos;
-
-  *extensão*
-  3a. caso os dados forem incorretos, informar de novo;
 
 ---
 
@@ -59,7 +43,7 @@ Neste arquivo será apresentado os `casos de uso`, `diagrama de casos de uso` e 
   2. o gerente informa o nome da barbearia/salão;
   3. o gerente informa o endereço da barbearia/salão;
   4. o gerente informa o horário de funcionamento da barbearia/salão;
-  5. _cadastrar barbeiro(a)_
+  5. <u>__cadastrar barbeiro(a)__</u>
 
 >**CADASTRAR BARBEIRO(A)**
 
@@ -74,7 +58,7 @@ Neste arquivo será apresentado os `casos de uso`, `diagrama de casos de uso` e 
   *fluxo normal*
   1. gerente atualiza os preços dos serviços;
   2. gerente deleta barbearias/salões;
-  3. gerente _adiciona barbearia/salão_;
+  3. gerente __adiciona barbearia/salão__;
   4. gerente atualiza informações dos Cabelereiro(a); 
 
 >**OBTER RELATÓRIOS**
@@ -93,8 +77,8 @@ Neste arquivo será apresentado os `casos de uso`, `diagrama de casos de uso` e 
   1. barbeiro visualiza seu dashboard com a lista de clientes e horarios que foram agendados;
   2. confirmar se o cliente compareceu;
   
-  *extensões*
-  2.a caso o cliente não comparecer, o Cabelereiro(a) deve registrar no sistema;
+  *extensões*:
+  - 2.a caso o cliente não comparecer, o Cabelereiro(a) deve registrar no sistema;
 
 
 ## Diagrama de Casos de Uso
