@@ -87,28 +87,88 @@ Neste arquivo será apresentado os `casos de uso`, `diagrama de casos de uso` e 
 
 > cliente
 ```txt
-cliente:
 
-"gostaria de fazer um agendamento, escolhendo a data, horário, serviço e o cabeleireiro"
+- AGENDAR HORÁRIO:
+  "gostaria de fazer um agendamento, escolhendo a data, horário, serviço e o cabeleireiro"
+- Critério de aceitação: 
+1. O cliente deve ter a opção de escolher a data em que deseja agendar o horário.
+2. Deve ser possível selecionar um horário disponível no dia escolhido pelo cliente.
+3. O cliente deve poder escolher o serviço que deseja agendar, com uma lista clara e descritiva.
+4. O cliente deve ter a opção de selecionar o cabeleireiro de sua preferência.
+5. Após a seleção da data, horário, serviço e cabeleireiro, o sistema deve confirmar o agendamento e exibir uma confirmação clara para o cliente.
+6. Caso o horário escolhido não esteja disponível, o sistema deve informar ao cliente e oferecer opções alternativas.
 
+
+- VISUALIZAR AGENDAMENTOS
 "Como cliente, gostaria de visualizar meus agendamentos ativos e passados"
+- Critério de aceitação: 
+1. O cliente deve ter a opção de acessar uma seção específica para visualizar seus agendamentos.
+2. A lista de agendamentos deve exibir os agendamentos ativos e passados separadamente, com indicações claras sobre o status de cada um.
+3. Para cada agendamento ativo, o cliente deve poder ver a data, horário, serviço, cabeleireiro e qualquer outra informação relevante.
+4. Para cada agendamento passado, o cliente deve poder visualizar o histórico completo do serviço prestado, incluindo data, horário, serviço e cabeleireiro.
 
+
+- EXCLUIR AGENDAMENTO
 "Como cliente, gostaria de poder excluir a qualquer momento meus agendamentos"
+- Critério de aceitação: 
+1. O cliente deve ter a opção de acessar uma seção específica para gerenciar seus agendamentos.
+2. Para cada agendamento listado, deve haver uma opção clara e visível para excluí-lo.
+3. Ao selecionar a opção de exclusão, o sistema deve solicitar uma confirmação do cliente antes de efetuar a exclusão.
+4. Após a confirmação, o agendamento selecionado deve ser removido da lista de agendamentos do cliente.
+5. O sistema deve fornecer um feedback claro para o cliente indicando que o agendamento foi excluído com sucesso.
 
+
+- VISUALIZAR BARBEARIA/SALÃO;
 "Como cliente, gostaria de poder visualizar as barbearias/salões que estão aberto em tal horário, dia ou região"
+- Critério de aceitação: 
+1. O cliente deve ter a opção de filtrar barbearias/salões por horário de funcionamento, escolhendo uma data e horário específicos.
+2. O sistema deve apresentar uma lista clara e organizada de barbearias/salões disponíveis com base nos critérios de horário, dia e região selecionados.
+3. Cada barbearia/salão listado deve exibir informações relevantes, como nome, endereço, horário de funcionamento e serviços oferecidos.
+4. O sistema deve fornecer a opção de ordenar a lista de barbearias/salões por critérios como proximidade, avaliações ou popularidade.
+5. Caso não haja barbearias/salões disponíveis que atendam aos critérios selecionados, o sistema deve informar ao cliente de forma clara.
 ```
 
 > Gerente
 ```txt
-  "Como gerente, gostaria de cadastrar novas barbearias/salões, ao qual posso informar os horarios de funcionamento, preços dos serviços ofertados, cadastro de Cabelereiros(as)"
-  
-  "Como gerente, gostaria de poder obter um relatório de dados com vendas e servicos ofertados em periodos específicos de funcionamento de cada barbearia/salão"
 
-  "Como Gerente, gostaria de editar os preços dos serviços ofertados pela barbearia/salão, além de excluir Cabelereiros(as) existentes e adicionar novos"
+  - CADASTRO DE BARBEARIAS/SALÕES
+  "Como gerente, gostaria de cadastrar novas barbearias/salões, ao qual posso informar os horarios de funcionamento, preços dos serviços ofertados, cadastro de Cabelereiros(as)"
+  - Critério de aceitação: 
+  1. O gerente deve ter a opção de acessar uma área específica para cadastrar novas barbearias/salões.
+  2. Ao cadastrar uma nova barbearia/salão, o gerente deve fornecer informações como nome, endereço e detalhes de contato.
+  3. O sistema deve permitir ao gerente definir os horários de funcionamento da barbearia/salão, incluindo dias e horas de atendimento.
+  4. O gerente deve ter a opção de cadastrar os preços dos serviços oferecidos, indicando o nome do serviço e o valor correspondente.
+  5. Deve ser possível cadastrar novos cabeleireiros(as), incluindo informações como nome, especialidade e horários de disponibilidade.
+  
+  - OBTER RELATÓRIOS
+  "Como gerente, gostaria de poder obter um relatório de dados com vendas e servicos ofertados em periodos específicos de funcionamento de cada barbearia/salão"
+  - Critério de aceitação: 
+  1. O gerente deve ter a opção de selecionar um período específico (como uma data de início e uma data de fim) para o relatório.
+  2. O sistema deve gerar um relatório que inclua informações sobre as vendas realizadas durante o período selecionado, com detalhes como valor total, número de transações e serviços mais populares.
+  3. O relatório deve incluir uma lista dos serviços oferecidos em cada barbearia/salão durante o período selecionado, juntamente com a quantidade de vezes que cada serviço foi solicitado.
+  4. O relatório deve exibir as informações de forma clara e organizada, facilitando a análise por parte do gerente.
+  5. O sistema deve fornecer a opção de exportar o relatório em formatos comuns, como PDF ou planilha Excel, para que o gerente possa compartilhar ou arquivar os dados.
+  6. Caso o período selecionado não tenha dados disponíveis, o sistema deve informar ao gerente de forma clara.
+
+  
+  - EDITAR DADOS DA BARBEARIA/SALÃO
+  "Como Gerente, gostaria de editar os preços dos serviços ofertados pela mimha/meu barbearia/salão, além de excluir Cabelereiros(as) existentes e adicionar novos"
+  - Critério de aceitação: 
+  1. O sistema deve fornecer uma funcionalidade para o gerente editar ou atualizar as informações de uma barbearia/salão já cadastrada.
+  2. O sistema deve fornecer uma funcionalidade para o gerente excluir uma barbearia/salão que não esteja mais ativa ou que tenha sido cadastrada erroneamente.
+  
 ```
 
 > Barbeiro
 ```txt
+
+  - VISUALIZAR LISTA DE CLIENTES
   "Como barbeiro, gostaria de ver a lista de horários dos clientes do dia atual, bem como os serviços que o cliente irá realizar";
+  - Critério de aceitação: 
+  1. Ao abrir a aplicação, o barbeiro deve ter a opção clara e visível para visualizar a lista de clientes do dia atual.
+  2. A lista de clientes deve exibir o nome de cada cliente agendado para o dia, juntamente com o horário do agendamento.
+  3. Ao selecionar um cliente na lista, o aplicativo deve exibir os detalhes do serviço(s) que o cliente irá realizar, como por exemplo, o tipo de corte ou tratamento.
+  4. A lista e os detalhes do serviço devem ser atualizados em tempo real, refletindo quaisquer alterações feitas pelo cliente ou pela equipe.
+  
 ```
 
