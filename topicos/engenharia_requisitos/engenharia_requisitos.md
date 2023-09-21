@@ -1,6 +1,10 @@
 # Engenharia de Requisitos
 
-Neste arquivo será apresentado os `casos de uso`, `diagrama de casos de uso` e as `histórias de usuários` do sistema de agendamentos dos salões.
+Neste arquivo será apresentado os`diagrama de casos de uso`, `casos de uso` e as `histórias de usuários` do sistema de agendamentos dos salões.
+
+## Diagrama de Casos de Uso
+
+![Diagrama de casos de uso](https://github.com/CarlosG18/sys_barbershop/blob/diagram_us_casos/topicos/engenharia_requisitos/imagens/diagrama_casos_de_uso.jpeg)
 
 ## Casos de Uso
 
@@ -78,11 +82,6 @@ Neste arquivo será apresentado os `casos de uso`, `diagrama de casos de uso` e 
   
   *extensões*:
   - 2.a caso o cliente não comparecer, o Cabelereiro(a) deve registrar no sistema;
-
-
-## Diagrama de Casos de Uso
-
-![Diagrama de casos de uso](https://github.com/CarlosG18/sys_barbershop/blob/diagram_us_casos/topicos/engenharia_requisitos/imagens/diagrama_casos_de_uso.jpeg)
 
 ## Histórias de Usuário (US)
 
