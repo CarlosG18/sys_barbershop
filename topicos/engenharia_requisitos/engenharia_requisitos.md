@@ -58,8 +58,7 @@ Neste arquivo será apresentado os `casos de uso`, `diagrama de casos de uso` e 
   *fluxo normal*
   1. gerente atualiza os preços dos serviços;
   2. gerente deleta barbearias/salões;
-  3. gerente __adiciona barbearia/salão__;
-  4. gerente atualiza informações dos Cabelereiro(a); 
+  3. gerente atualiza informações dos Cabelereiro(a); 
 
 >**OBTER RELATÓRIOS**
 
@@ -71,7 +70,7 @@ Neste arquivo será apresentado os `casos de uso`, `diagrama de casos de uso` e 
 
 **Ator: Cabelereiro(a)**
 
->**CONFIRMAR AGENDAMENTO**
+>**CONFIRMAR PRESENÇA**
 
   *fluxo normal*
   1. barbeiro visualiza seu dashboard com a lista de clientes e horarios que foram agendados;
@@ -82,6 +81,8 @@ Neste arquivo será apresentado os `casos de uso`, `diagrama de casos de uso` e 
 
 
 ## Diagrama de Casos de Uso
+
+[Diagrama de casos de uso](https://github.com/CarlosG18/sys_barbershop/tree/main/topicos/imagens/diagrama_casos_de_uso.jpeg)
 
 ## Histórias de Usuário (US)
 
