@@ -84,3 +84,31 @@ Neste arquivo será apresentado os `casos de uso`, `diagrama de casos de uso` e 
 ## Diagrama de Casos de Uso
 
 ## Histórias de Usuário (US)
+
+> cliente
+```txt
+cliente:
+
+"gostaria de fazer um agendamento, escolhendo a data, horário, serviço e o cabeleireiro"
+
+"Como cliente, gostaria de visualizar meus agendamentos ativos e passados"
+
+"Como cliente, gostaria de poder excluir a qualquer momento meus agendamentos"
+
+"Como cliente, gostaria de poder visualizar as barbearias/salões que estão aberto em tal horário, dia ou região"
+```
+
+> Gerente
+```txt
+  "Como gerente, gostaria de cadastrar novas barbearias/salões, ao qual posso informar os horarios de funcionamento, preços dos serviços ofertados, cadastro de Cabelereiros(as)"
+  
+  "Como gerente, gostaria de poder obter um relatório de dados com vendas e servicos ofertados em periodos específicos de funcionamento de cada barbearia/salão"
+
+  "Como Gerente, gostaria de editar os preços dos serviços ofertados pela barbearia/salão, além de excluir Cabelereiros(as) existentes e adicionar novos"
+```
+
+> Barbeiro
+```txt
+  "Como barbeiro, gostaria de ver a lista de horários dos clientes do dia atual, bem como os serviços que o cliente irá realizar";
+```
+
