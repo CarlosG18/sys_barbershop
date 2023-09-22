@@ -1,6 +1,6 @@
 # Engenharia de Requisitos
 
-Neste arquivo será apresentado os`diagrama de casos de uso`, `casos de uso` e as `histórias de usuários` do sistema de agendamentos dos salões.
+Neste arquivo serão apresentados os`diagrama de casos de uso`, `casos de uso` e as `histórias de usuários` do sistema de agendamentos dos salões.
 
 ## Diagrama de Casos de Uso
 
