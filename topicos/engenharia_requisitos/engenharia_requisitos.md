@@ -13,6 +13,7 @@ Neste arquivo serão apresentados os`diagrama de casos de uso`, `casos de uso` e
 > **CRIAR CONTA**:
 
   *fluxo normal*
+  1. cliente acessa a página de criação de conta para clientes.
   1. cliente informa username;
   2. cliente informa email;
   3. cliente informa cpf;
@@ -43,13 +44,14 @@ Neste arquivo serão apresentados os`diagrama de casos de uso`, `casos de uso` e
 >**ADICIONAR BARBEARIA/SALÂO**
 
   *fluxo normal*
-  1. o gerente informa o cnpj da barbearia/salão;
-  2. o gerente informa o nome da barbearia/salão;
-  3. o gerente informa o endereço da barbearia/salão;
-  4. o gerente informa o horário de funcionamento da barbearia/salão;
-  5. <u>__cadastrar barbeiro(a)__</u>
+  1. O gerente acessa a página de criação de conta e seleciona a opção de gerência.
+  3. O gerente informa o cnpj da barbearia/salão;
+  4. O gerente informa o nome da barbearia/salão;
+  5. O gerente informa o endereço da barbearia/salão;
+  6. O gerente informa o horário de funcionamento da barbearia/salão;
+  7. <u>__cadastrar barbeiro(a)__</u>
 
->**CADASTRAR BARBEIRO(A)**
+>**CADASTRAR CABELEREIRO(A)**
 
   *fluxo normal*
   1. gerente informa nome do Cabelereiro(a);
@@ -57,18 +59,31 @@ Neste arquivo serão apresentados os`diagrama de casos de uso`, `casos de uso` e
   3. gerente informa a clasificação do Cabelereiro(a);
   4. gerente informa os tipos de serviços que o Cabelereiro(a) possui incluindo as estimativas de tempo;
 
->**ATUALIZAR DADOS**
+>**GERENCIAR BARBEARIA/SALÃO**
 
   *fluxo normal*
-  1. gerente atualiza os preços dos serviços;
-  2. gerente deleta barbearias/salões;
-  3. gerente atualiza informações dos Cabelereiro(a); 
+  1. O gerente acessa o painel de administração do sistema.
+  2. O gerente realiza as alterações desejadas, como atualização de horários de funcionamento, preços de serviços ou informações de contato.
+  3. O gerente poderá excluir a barbearia/salão.
+  4. O sistema solicita confirmação antes de efetuar a exclusão.
+  5. O sistema remove a barbearia/salão do registro.
+
+>**GERENCIAR CABELEREIRO(A)**
+
+  *fluxo normal*
+  1. O gerente acessa o painel de administração do sistema.
+  2. O gerente poderá <u>__Cadastrar Cabelereiro(a)__</u>
+  3. O gerente seleciona o cabelereiro(a).
+  4. O gerente modifica dados do cabelereiro(a).
+  5. O gerente poderá excluir cabelereiro(a).
+  6. O sistema solicita confirmação antes de efetuar a edição dos dados.
 
 >**OBTER RELATÓRIOS**
 
   *fluxo normal*
-  1. gerente obtem relatório de receita;
-  2. estimativa de comparecimento;
+  1. O gerente acessa o painel de administração do sistema.
+  2. O gerente seleciona a seção de relatórios.
+  3. O gerente poderá obter relatório de receita e taxa de comparecimento.
 
 ---
 
@@ -83,13 +98,35 @@ Neste arquivo serão apresentados os`diagrama de casos de uso`, `casos de uso` e
   *extensões*:
   - 2.a caso o cliente não comparecer, o Cabelereiro(a) deve registrar no sistema;
 
+---
+
+**Ator: Sistema**
+
+>**NOTIFICAR CLIENTE**
+
+  *fluxo normal*
+  1. O sistema verifica periodicamente os agendamentos ativos.
+  2. O sistema calcula o tempo restante até o horário agendado para cada cliente.
+  3. Caso o tempo restante for igual a 30 minutos o sistema envia uma notificação push para o dispositivo do cliente através de um email ou mensagem no whatsapp.
+
+> **AUTENTICAÇÂO**:
+
+  *fluxo normal*
+  1. O usuário acessa a página de login do sistema.
+  2. O sistema exibe os campos de entrada para o nome de usuário e senha.
+  3. O usuário insere suas credenciais (nome de usuário e senha) nos campos correspondentes.
+  4. O usuário clica no botão de "Login" para submeter as informações.
+  5. O sistema verifica as credenciais fornecidas pelo usuário.
+  6. Se as credenciais são válidas, o sistema autentica o usuário e redireciona para a página inicial personalizada.
+  7. Se as credenciais são inválidas, o sistema exibe uma mensagem de erro indicando que a autenticação falhou.
+
 ## Histórias de Usuário (US)
 
 > cliente
 ```txt
 
 - AGENDAR HORÁRIO:
-  "gostaria de fazer um agendamento, escolhendo a data, horário, serviço e o cabeleireiro"
+  "Como cliente, gostaria de fazer um agendamento, escolhendo a data, horário, serviço e o cabeleireiro"
 - Critério de aceitação: 
 1. O cliente deve ter a opção de escolher a data em que deseja agendar o horário.
 2. Deve ser possível selecionar um horário disponível no dia escolhido pelo cliente.
