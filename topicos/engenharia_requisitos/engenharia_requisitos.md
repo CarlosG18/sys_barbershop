@@ -46,10 +46,11 @@ Neste arquivo serão apresentados os`diagrama de casos de uso`, `casos de uso` e
   *fluxo normal*
   1. O gerente acessa a página de criação de conta e seleciona a opção de gerência.
   2. O gerente informa o cnpj da barbearia/salão;
-  3. O gerente informa o nome da barbearia/salão;
-  4. O gerente informa o endereço da barbearia/salão;
-  5. O gerente informa o horário de funcionamento da barbearia/salão;
-  6. <u>__cadastrar barbeiro(a)__</u>
+  3. O gerente informa uma senha para poder logar na conta da barbearia/salão.
+  4. O gerente informa o nome da barbearia/salão;
+  5. O gerente informa o endereço da barbearia/salão;
+  6. O gerente informa o horário de funcionamento da barbearia/salão;
+  7. <u>__cadastrar barbeiro(a)__</u>
 
 >**CADASTRAR CABELEREIRO(A)**
 
