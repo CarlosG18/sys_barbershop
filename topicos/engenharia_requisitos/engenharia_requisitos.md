@@ -21,15 +21,18 @@ Neste arquivo serão apresentados os`diagrama de casos de uso`, `casos de uso` e
 
   *extensões*:
   - 3a. se o cpf for invalido, informar um novo;
+  - 2a. informar se o username colocado já está em uso;
+  - 5a. a senha será aceita se conter um caractere especial, uma letra maiúscula e uma minúscula e no mínimo um número.
   
 > **AGENDAR**:
 
   *fluxo normal*
-  1. Cliente escolhe uma barbearia/salão;
-  2. Cliente clica na função de agendar;
-  3. Cliente escolhe os tipos de serviços (tipo do corte, qual cabelereiro(a), etc);
-  4. Cliente visualiza o preço total e o tempo estimado para os serviços selecionados;
-  5. Cliente escolhe seu horário e confirma;
+  1. Cliente poderá fazer uma filtragem das barbearias/salões(região, se está aberta, preço e serviços);
+  2. Cliente escolhe uma barbearia/salão;
+  3. Cliente clica na função de agendar;
+  4. Cliente escolhe os tipos de serviços (tipo do corte, qual cabelereiro(a), etc);
+  5. Cliente visualiza o preço total e o tempo estimado para os serviços selecionados;
+  6. Cliente escolhe seu horário e confirma;
 
 > **EXCLUIR AGENDAMENTO**
 
@@ -45,20 +48,24 @@ Neste arquivo serão apresentados os`diagrama de casos de uso`, `casos de uso` e
 
   *fluxo normal*
   1. O gerente acessa a página de criação de conta e seleciona a opção de gerência.
-  2. O gerente informa o cnpj da barbearia/salão;
-  3. O gerente informa uma senha para poder logar na conta da barbearia/salão.
-  4. O gerente informa o nome da barbearia/salão;
-  5. O gerente informa o endereço da barbearia/salão;
-  6. O gerente informa o horário de funcionamento da barbearia/salão;
-  7. <u>__cadastrar barbeiro(a)__</u>
+  2. O gerente informa o seu username;
+  3. O gerente informa a senha.
+  4. O gerente informa o cnpj da barbearia/salão;
+  5. O gerente informa o nome da barbearia/salão;
+  6. O gerente informa o endereço da barbearia/salão;
+  7. O gerente informa o horário de funcionamento da barbearia/salão;
+  8. <u>__cadastrar barbeiro(a)__</u>
 
 >**CADASTRAR CABELEREIRO(A)**
 
   *fluxo normal*
-  1. gerente informa nome do Cabelereiro(a);
-  2. gerente informa os horarios do Cabelereiro(a);
-  3. gerente informa a clasificação do Cabelereiro(a);
-  4. gerente informa os tipos de serviços que o Cabelereiro(a) possui incluindo as estimativas de tempo;
+  1. O gerente acessa o painel de administração do sistema.
+  2. O gerente acessa a seção de cabelereiros;
+  3. O gerente clica na funcionalidade de adicionar um novo cabelereiro;
+  2. gerente informa nome do Cabelereiro(a);
+  3. gerente informa os horarios do Cabelereiro(a);
+  4. gerente informa a clasificação do Cabelereiro(a);
+  5. gerente informa os tipos de serviços que o Cabelereiro(a) possui incluindo as estimativas de tempo;
 
 >**GERENCIAR BARBEARIA/SALÃO**
 
@@ -73,11 +80,12 @@ Neste arquivo serão apresentados os`diagrama de casos de uso`, `casos de uso` e
 
   *fluxo normal*
   1. O gerente acessa o painel de administração do sistema.
-  2. O gerente poderá <u>__Cadastrar Cabelereiro(a)__</u>
-  3. O gerente seleciona o cabelereiro(a).
-  4. O gerente modifica dados do cabelereiro(a).
-  5. O gerente poderá excluir cabelereiro(a).
-  6. O sistema solicita confirmação antes de efetuar a edição dos dados.
+  2. O gerente acessa a seção de cabelereiros;
+  3. O gerente poderá <u>__Cadastrar Cabelereiro(a)__</u>
+  4. O gerente seleciona o cabelereiro(a).
+  5. O gerente modifica dados do cabelereiro(a).
+  6. O gerente poderá excluir cabelereiro(a).
+  7. O sistema solicita confirmação antes de efetuar a edição dos dados.
 
 >**OBTER RELATÓRIOS**
 
