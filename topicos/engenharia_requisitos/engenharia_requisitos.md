@@ -14,10 +14,10 @@ Neste arquivo serão apresentados os`diagrama de casos de uso`, `casos de uso` e
 
   *fluxo normal*
   1. cliente acessa a página de criação de conta para clientes.
-  1. cliente informa username;
-  2. cliente informa email;
-  3. cliente informa cpf;
-  4. cliente informa senha;
+  2. cliente informa username;
+  3. cliente informa email;
+  4. cliente informa cpf;
+  5. cliente informa senha;
 
   *extensões*:
   - 3a. se o cpf for invalido, informar um novo;
@@ -45,11 +45,11 @@ Neste arquivo serão apresentados os`diagrama de casos de uso`, `casos de uso` e
 
   *fluxo normal*
   1. O gerente acessa a página de criação de conta e seleciona a opção de gerência.
-  3. O gerente informa o cnpj da barbearia/salão;
-  4. O gerente informa o nome da barbearia/salão;
-  5. O gerente informa o endereço da barbearia/salão;
-  6. O gerente informa o horário de funcionamento da barbearia/salão;
-  7. <u>__cadastrar barbeiro(a)__</u>
+  2. O gerente informa o cnpj da barbearia/salão;
+  3. O gerente informa o nome da barbearia/salão;
+  4. O gerente informa o endereço da barbearia/salão;
+  5. O gerente informa o horário de funcionamento da barbearia/salão;
+  6. <u>__cadastrar barbeiro(a)__</u>
 
 >**CADASTRAR CABELEREIRO(A)**
 
