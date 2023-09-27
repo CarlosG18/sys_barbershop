@@ -4,7 +4,7 @@ Neste arquivo serão apresentados os`diagrama de casos de uso`, `casos de uso` e
 
 ## Diagrama de Casos de Uso
 
-![Diagrama de casos de uso](https://github.com/CarlosG18/sys_barbershop/blob/diagram_us_casos/topicos/engenharia_requisitos/imagens/diagrama_casos_de_uso.jpeg)
+![Diagrama de casos de uso](https://github.com/CarlosG18/sys_barbershop/blob/main/topicos/engenharia_requisitos/imagens/diagrama_casos_de_uso.jpeg)
 
 ## Casos de Uso
 
