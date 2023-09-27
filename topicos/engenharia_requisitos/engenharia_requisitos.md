@@ -10,6 +10,17 @@ Neste arquivo serão apresentados os`diagrama de casos de uso`, `casos de uso` e
 
 **Ator: Cliente**
 
+> **AUTENTICAÇÂO**:
+
+  *fluxo normal*
+  1. O usuário acessa a página de login do sistema.
+  2. O sistema exibe os campos de entrada para o nome de usuário e senha.
+  3. O usuário insere suas credenciais (nome de usuário e senha) nos campos correspondentes.
+  4. O usuário clica no botão de "Login" para submeter as informações.
+  5. O sistema verifica as credenciais fornecidas pelo usuário.
+  6. Se as credenciais são válidas, o sistema autentica o usuário e redireciona para a página inicial personalizada.
+  7. Se as credenciais são inválidas, o sistema exibe uma mensagem de erro indicando que a autenticação falhou.
+
 > **CRIAR CONTA**:
 
   *fluxo normal*
@@ -42,6 +53,17 @@ Neste arquivo serão apresentados os`diagrama de casos de uso`, `casos de uso` e
 ---
 
 **Ator: gerente**
+
+> **AUTENTICAÇÂO**:
+
+  *fluxo normal*
+  1. O usuário acessa a página de login do sistema.
+  2. O sistema exibe os campos de entrada para o nome de usuário e senha.
+  3. O usuário insere suas credenciais (nome de usuário e senha) nos campos correspondentes.
+  4. O usuário clica no botão de "Login" para submeter as informações.
+  5. O sistema verifica as credenciais fornecidas pelo usuário.
+  6. Se as credenciais são válidas, o sistema autentica o usuário e redireciona para a página inicial personalizada.
+  7. Se as credenciais são inválidas, o sistema exibe uma mensagem de erro indicando que a autenticação falhou.
 
 >**CADASTRAR CABELEREIRO(A)**
 
@@ -86,6 +108,20 @@ Neste arquivo serão apresentados os`diagrama de casos de uso`, `casos de uso` e
 
 **Ator: Cabelereiro(a)**
 
+> **AUTENTICAÇÂO**:
+
+  *fluxo normal*
+  1. O usuário acessa a página de login do sistema.
+  2. O sistema exibe os campos de entrada para o nome de usuário e senha.
+  3. O usuário insere suas credenciais (nome de usuário e senha) nos campos correspondentes.
+  4. O usuário clica no botão de "Login" para submeter as informações.
+  5. O sistema verifica as credenciais fornecidas pelo usuário.
+  6. Se as credenciais são válidas, o sistema autentica o usuário e redireciona para a página inicial personalizada.
+  7. Se as credenciais são inválidas, o sistema exibe uma mensagem de erro indicando que a autenticação falhou.
+
+  *extensões*:
+  6. caso o cpf do cabelereiro(a) não estiver cadastrado no sistema ele não conseguirá realizar o login.
+
 >**CONFIRMAR PRESENÇA**
 
   *fluxo normal*
@@ -105,20 +141,6 @@ Neste arquivo serão apresentados os`diagrama de casos de uso`, `casos de uso` e
   1. O sistema verifica periodicamente os agendamentos ativos.
   2. O sistema calcula o tempo restante até o horário agendado para cada cliente.
   3. Caso o tempo restante for igual a 30 minutos o sistema envia uma notificação push para o dispositivo do cliente através de um email ou mensagem no whatsapp.
-
-> **AUTENTICAÇÂO**:
-
-  *fluxo normal*
-  1. O usuário acessa a página de login do sistema.
-  2. O sistema exibe os campos de entrada para o nome de usuário e senha.
-  3. O usuário insere suas credenciais (nome de usuário e senha) nos campos correspondentes.
-  4. O usuário clica no botão de "Login" para submeter as informações.
-  5. O sistema verifica as credenciais fornecidas pelo usuário.
-  6. Se as credenciais são válidas, o sistema autentica o usuário e redireciona para a página inicial personalizada.
-  7. Se as credenciais são inválidas, o sistema exibe uma mensagem de erro indicando que a autenticação falhou.
-
-  *extensões*:
-  6. se o usuário for um cabelereiro(a), caso o cpf do cabelereiro(a) não esteja cadastrado no sistema ele não conseguirá realizar o login.
 
 >**ENVIAR CREDÊNCIAIS**
 
