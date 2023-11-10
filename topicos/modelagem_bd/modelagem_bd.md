@@ -1,5 +1,6 @@
 # Modelagem do Banco de Dados
 
+## modelo relacional
 ```mermaid
 ---
 title: Modelagem Banco de Dados do sistema de agendamentos (barbearia)
@@ -39,10 +40,13 @@ flowchart LR
     style Gerente fill:#ADD8E6,stroke:#000,stroke-width:1px
     style Agendamento fill:#FFDEAD,stroke:#000,stroke-width:1px
     
-    Usuario --- overlap
+    especializacao([d])
+    Usuario --- especializacao
+    especializacao --- Gerente
+
+    especializacao --- overlap
     overlap --- Barbeiro
     overlap --- Cliente
-    overlap --- Gerente
     
     relacionamento1{participa}
     relacionamento2{gerencia}
@@ -59,4 +63,41 @@ flowchart LR
     Gerente --- relacionamento3
     relacionamento3 --- Agendamento
 
+```
+## modelo ER
+```mermaid
+erDiagram
+    
+    Usuario {
+        string email
+        string cpf PK
+        string username
+        string senha
+    }
+    
+    Agendamento {
+        int id PK
+        string servico
+        float preco
+        date horario
+    }
+
+    Barbeiro {
+        string cpf_b FK
+    }
+    Barbeiro ||--o{ Agendamento : faz
+
+    Cliente {
+        string cpf_c FK
+    }
+
+    Cliente }o--o{ Agendamento : faz
+
+    Gerente {
+        string cpf_g FK
+    }
+    Gerente ||--o{ Barbeiro : Gerencia
+    
+    Usuario ||--|| Barbeiro : herda
+    Usuario ||--|| Cliente : herda
 ```
