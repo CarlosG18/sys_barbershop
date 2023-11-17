@@ -64,6 +64,10 @@ flowchart LR
     relacionamento3 --- Agendamento
 ```
 ### cardinalidade
+- Cliente (N) --> PARTICIPA --> (N) Agendamento
+- Barbeiro (1) --> PARTICIPA --> (N) Agendamento
+- Gerente (1) -->  GERÊNCIA --> (N) Barbeiro
+- Gerente (1) -->  GERÊNCIA --> (N) Agendamento
 
 ## Modelo Relacional
 ```mermaid
@@ -71,35 +75,44 @@ erDiagram
     
     Usuario {
         string email
-        string cpf PK
+        string __cpf__ PK
         string username
         string senha
     }
     
     Agendamento {
-        int id PK
+        int __id__ PK
         string servico
         float preco
         date horario
+        string cpf_gerente__ FK
     }
 
     Barbeiro {
-        string cpf_b FK
+        string __cpf_b__ FK
+        string cpf_gerente__ FK
     }
-    Barbeiro ||--o{ Agendamento : faz
 
     Cliente {
-        string cpf_c FK
+        string __cpf_c__ FK
     }
-
-    Cliente }o--o{ Agendamento : faz
 
     Gerente {
-        string cpf_g FK
+        string __cpf_g__ FK
     }
-    Gerente ||--o{ Barbeiro : Gerencia
-    
-    Usuario ||--|| Barbeiro : herda
-    Usuario ||--|| Cliente : herda
+
+    Cliente_Agendamento{
+        string cpf_barbeiro FK
+        string __cpf_cliente__ FK 
+        string __id_agendamento__ FK  
+    }
 ```
-### referências de chaves primarias
+### referências das chaves estrangeiras (FK):
+- cpf_b(Barbeiro) referência cpf(Usuário);
+- cpf_c(Cliente) referência cpf(Usuário);
+- cpf_g(Gerente) referência cpf(Usuário);
+- cpf_barbeiro(Cliente_Agendamento) referência cpf_b(Barbeiro);
+- cpf_cliente(Cliente_Agendamento) referência cpf_c(Cliente);
+- id_agendamento(Cliente_Agendamento) referência id(Agendamento);
+- cpf_gerente(Agendamento) referência cpf_g(Gerente);
+- cpf_gerente(Barbeiro) referência cpf_g(Gerente);
