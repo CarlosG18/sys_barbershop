@@ -1,6 +1,6 @@
 # Modelagem do Banco de Dados
 
-## modelo relacional
+## Modelo Entidade-Relacionamento(MER)
 ```mermaid
 ---
 title: Modelagem Banco de Dados do sistema de agendamentos (barbearia)
@@ -62,9 +62,10 @@ flowchart LR
 
     Gerente --- relacionamento3
     relacionamento3 --- Agendamento
-
 ```
-## modelo ER
+### cardinalidade
+
+## Modelo Relacional
 ```mermaid
 erDiagram
     
@@ -101,3 +102,4 @@ erDiagram
     Usuario ||--|| Barbeiro : herda
     Usuario ||--|| Cliente : herda
 ```
+### referências de chaves primarias
