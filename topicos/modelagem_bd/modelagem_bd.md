@@ -1,6 +1,9 @@
 # Modelagem do Banco de Dados
 
 ## Modelo Entidade-Relacionamento(MER)
+
+[imagem do modelo entidade relacionamento](https://github.com/CarlosG18/sys_barbershop/blob/modelagem_bd/topicos/modelagem_bd/imagens/modelagem_bd.md)
+
 ```mermaid
 ---
 title: Modelagem Banco de Dados do sistema de agendamentos (barbearia)
