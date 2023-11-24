@@ -104,7 +104,9 @@ erDiagram
 ```
 
 ```mermaid
-Cliente {
+erDiagram
+    
+    Cliente {
         string __cpf_c__ FK
     }
 
