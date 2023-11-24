@@ -122,7 +122,7 @@ erDiagram
 
 
     Servico{
-        int __id__
+        int __id__ PK
         string nome 
         string descricao
         string tipo
