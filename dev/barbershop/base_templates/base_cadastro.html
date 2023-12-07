@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/cadastro/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+</head>
+<body>
+    <div class="box-login">
+        <h1> {% block type %}{% endblock %} </h1>
+        <form action="">
+            <div class="inputs">
+                {% block inputs %}{% endblock %}
+            </div>
+            <div class="links">
+                {% block links %}{% endblock %}
+            </div>
+        </form>
+    </div>
+</body>
+</html>

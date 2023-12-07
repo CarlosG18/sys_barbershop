@@ -1,0 +1,15 @@
+{% extends '../base_cadastro.html' %}
+
+{% block title %} Login | Barbershop {% endblock %}
+{% block type %} Login {% endblock %}
+{% block inputs %}
+    <label for="username">username</label>
+    <input id="username" type="text">
+    <label for="senha">password</label>
+    <input type="password" name="password" id="senha">
+    <input class="button" type="button" value="entrar">
+{% endblock %}
+{% block links %}
+    <a href="{% url 'cadastro:cadastro' %}">não possui conta? clique aqui!</a>
+    <a href="{% url 'cadastro:gerente' %}">voce é um gerente do nosso sistema? clique aqui!</a>
+{% endblock %}

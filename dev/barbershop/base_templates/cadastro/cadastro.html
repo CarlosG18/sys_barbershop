@@ -1,0 +1,19 @@
+{% extends '../base_cadastro.html' %}
+
+{% block title %} Cadastro| Barbershop {% endblock %}
+{% block type %} Cadastro {% endblock %}
+{% block inputs %}
+    <label for="username">username</label>
+    <input id="username" type="text">
+    <label for="email">email</label>
+    <input id="email" type="email">
+    <label for="cpf">cpf</label>
+    <input id="cpf" type="text">
+    <label for="senha">password</label>
+    <input type="password" name="password" id="senha">
+    <input class="button" type="button" value="entrar">
+{% endblock %}
+{% block links %}
+    <a href="{% url 'cadastro:login' %}">já possui conta? clique aqui!</a>
+    <a href="{% url 'cadastro:gerente' %}">voce é um gerente do nosso sistema? clique aqui!</a>
+{% endblock %}
