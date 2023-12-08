@@ -3,13 +3,19 @@
 {% block title %} Gerencia-login | Barbershop {% endblock %}
 {% block type %} Gerencia-login {% endblock %}
 {% block inputs %}
-    <label for="username">username</label>
-    <input id="username" type="text">
-    <label for="codigo">codigo de verificação</label>
-    <input id="codigo" type="text">
-    <label for="senha">password</label>
-    <input type="password" name="password" id="senha">
-    <input class="button" type="button" value="entrar">
+<div class="form-floating mb-3">
+    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+    <label for="floatingInput">Username</label>
+</div>
+<div class="form-floating mb-2">
+    <input type="text" class="form-control" id="floatingPassword" placeholder="codigo">
+    <label for="floatingPassword">codigo de verificação</label>
+</div>
+<div class="form-floating mb-2">
+    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+    <label for="floatingPassword">Password</label>
+</div>
+<button class="w-100 btn btn-lg btn-primary" type="submit">Entrar</button>
 {% endblock %}
 {% block links %}
     <a href="{% url 'cadastro:login' %}">você não é gerente? clique aqui!</a>

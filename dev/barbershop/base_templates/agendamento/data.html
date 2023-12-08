@@ -1,0 +1,34 @@
+{% extends '../base.html' %}
+{% load static %}
+
+{% block title %} Index | Barbershop {% endblock %}
+
+{% block body %}
+    <div class="container mb-4">
+        <h1>Horarios disponiveis</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col border"></div>
+                <div class="col border">Segunda</div>
+                <div class="col border">Terça</div>
+                <div class="col border">Quarta</div>
+                <div class="col border">Quinta</div>
+                <div class="col border">Sexta</div>
+                <div class="col border">Sabado</div>
+                <div class="col border">Domingo</div>
+            </div>
+            {% for i in horarios %}
+            <div class="row">
+                <div class="col border">{{i}}</div>
+                <div class="col border"></div>
+                <div class="col border"></div>
+                <div class="col border"></div>
+                <div class="col border"></div>
+                <div class="col border"></div>
+                <div class="col border"></div>
+                <div class="col border"></div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
