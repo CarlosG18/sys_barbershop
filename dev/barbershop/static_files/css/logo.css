@@ -1,0 +1,15 @@
+.image-logo{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    object-fit: cover;
+    margin-bottom: 10px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.288);
+}
+
+.image-logo > img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}

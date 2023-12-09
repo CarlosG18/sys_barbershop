@@ -1,23 +1,72 @@
 {% extends '../base_cadastro.html' %}
 
 {% block title %} Gerencia-login | Barbershop {% endblock %}
-{% block type %} Gerencia-login {% endblock %}
-{% block inputs %}
-<div class="form-floating mb-3">
-    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-    <label for="floatingInput">Username</label>
-</div>
-<div class="form-floating mb-2">
-    <input type="text" class="form-control" id="floatingPassword" placeholder="codigo">
-    <label for="floatingPassword">codigo de verificação</label>
-</div>
-<div class="form-floating mb-2">
-    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-    <label for="floatingPassword">Password</label>
-</div>
-<button class="w-100 btn btn-lg btn-primary" type="submit">Entrar</button>
+
+{% block forms %}
+    <form action="{% url 'cadastro:gerente' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% block title-form %} <h1 class="h3 mb-3 fw-normal">cadastro - gerente</h1> {% endblock %}
+        <div class="form-floating mb-3">
+            <div>
+                {{form_user.username.label}}
+            </div>
+            <div>
+                {{form_user.username}}
+            </div>
+        </div>
+        <div class="form-floating mb-2">
+            <div>
+                {{form_user.email.label}}
+            </div>
+            <div>
+                {{form_user.email}}
+            </div>
+        </div>
+        <div class="form-floating mb-2">
+            <div>
+                {{form_gerente.cpf.label}}
+            </div>
+            <div>
+                {{form_gerente.cpf}}
+            </div>
+        </div>
+        <div class="form-floating mb-2">
+            <div>
+                {{form_gerente.codigo.label}}
+            </div>
+            <div>
+                {{form_gerente.codigo}}
+            </div>
+        </div>
+        <div class="form-floating mb-2">
+            <div>
+                {{form_gerente.img.label}}
+            </div>
+            <div>
+                {{form_gerente.img}}
+            </div>
+        </div>
+        <div class="form-floating mb-2">
+            <div>
+                {{form_user.password.label}}
+            </div>
+            <div>
+                {{form_user.password}}
+            </div>
+        </div>
+        {% if form_user.errors or form_gerente.errors %}
+        <div class="errors">
+          {{form_gerente.errors}}  
+          {{form_user.errors}}
+        </div>
+        {% endif %}
+        
+        <button class="w-100 btn btn-lg btn-primary" type="submit">criar conta</button>
+    </form>
 {% endblock %}
+
 {% block links %}
-    <a href="{% url 'cadastro:login' %}">você não é gerente? clique aqui!</a>
+    <a href="{% url 'login' %}">você não é gerente? clique aqui!</a>
     <a href="{% url 'cadastro:gerente' %}">voce é um gerente do nosso sistema? clique aqui!</a>
-{% endblock %}
+{% endblock %} 
+

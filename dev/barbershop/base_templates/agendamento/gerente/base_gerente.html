@@ -22,11 +22,11 @@
             <li><a href="{% url 'agendamento:home_gerente' %}" class="nav-link px-2 link-secondary">Home</a></li>
             <li><a href="{% url 'agendamento:barbeiros' %}" class="nav-link px-2">Barbeiros</a></li>
             <li><a href="{% url 'agendamento:services' %}" class="nav-link px-2">Serviços</a></li>
-            <li><a href="#" class="nav-link px-2">Relatorios</a></li>
+            <li><a href="{% url 'agendamento:relatorios' %}" class="nav-link px-2">Relatorios</a></li>
           </ul>
     
           <div class="col-md-3 text-end">
-            <button type="button" class="btn btn-outline-primary me-2">sair</button>
+            <button type="button" class="btn btn-outline-primary me-2"><a href="{% url 'logout' %}">sair</a></button>
           </div>
         </header>
       </div>    

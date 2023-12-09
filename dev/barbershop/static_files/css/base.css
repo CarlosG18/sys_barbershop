@@ -14,3 +14,7 @@
     --verde_escuro: #006400;
     --marrom_tabaco: #8B4513;
 }
+
+a{
+    text-decoration: none !important;
+}

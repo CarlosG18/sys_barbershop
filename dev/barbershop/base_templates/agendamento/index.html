@@ -2,81 +2,37 @@
 {% load static %}
 
 {% block title %} Index | Barbershop {% endblock %}
+{% block styles %}
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+{% endblock %}
 
 {% block body %}
     <div class="container mb-4">
         <h1>Barbeiros disponiveis</h1>
         <div class="container-fluid d-flex flex-wrap justify-content-md-between">
+
+        {% if barbeiros %}
+          {% for barber in barbeiros %}
             <div class="card mb-3" style="max-width: 540px;">
                 <div class="row g-0">
                   <div class="col-md-4">
-                    <img src="..." class="img-fluid rounded-start" alt="...">
+                    <img src="{{barber.img.url}}" class="img-fluid rounded-start" alt="...">
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
-                      <h5 class="card-title">nome do Barbeiro</h5>
-                      <p class="card-text text-justify">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                      <h5 class="card-title">{{barber.user.username}}</h5>
+                      <p class="card-text text-justify"><b>especialidade:</b> a definir</p>
                       <div class="d-flex justify-content-md-between align-items-center">
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        <button type="button" class="btn btn-success"><a href="{% url 'agendamento:horarios' %}">agendar</a></button>
+                        <p class="card-text"><small class="text-muted">experiencia de 3 anos</small></p>
+                        <button type="button" class="btn btn-success"><a style="color: white" href="{% url 'agendamento:horarios' %}">agendar</a></button>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="card mb-3" style="max-width: 540px;">
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <img src="..." class="img-fluid rounded-start" alt="...">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 class="card-title">nome do Barbeiro</h5>
-                      <p class="card-text text-justify">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                      <div class="d-flex justify-content-md-between align-items-center">
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        <button type="button" class="btn btn-success">agendar</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card mb-3" style="max-width: 540px;">
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <img src="..." class="img-fluid rounded-start" alt="...">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 class="card-title">nome do Barbeiro</h5>
-                      <p class="card-text text-justify">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                      <div class="d-flex justify-content-md-between align-items-center">
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        <button type="button" class="btn btn-success">agendar</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card mb-3" style="max-width: 540px;">
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <img src="..." class="img-fluid rounded-start" alt="...">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 class="card-title">nome do Barbeiro</h5>
-                      <p class="card-text text-justify">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                      <div class="d-flex justify-content-md-between align-items-center">
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        <button type="button" class="btn btn-success">agendar</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            
-        </div>
-        
+          {% endfor %}  
+        {% else %}
+             <div class="container"> sem barbeiros cadastrados</div> 
+        {% endif %}
     </div>
 {% endblock %}
