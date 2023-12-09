@@ -2,7 +2,7 @@
 
 ## Modelo Entidade-Relacionamento(MER)
 
-![imagem do modelo entidade relacionamento](https://github.com/CarlosG18/sys_barbershop/blob/modelagem_bd/topicos/modelagem_bd/imagens/bd_modalagem.png)
+![imagem do modelo entidade relacionamento](https://github.com/CarlosG18/sys_barbershop/blob/modelagem_bd/topicos/modelagem_bd/imagens/bd_modelagem.png)
 
 
 <!--
