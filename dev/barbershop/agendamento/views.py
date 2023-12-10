@@ -6,6 +6,8 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from cadastro.forms import FormBarbeiro, FormUser
+from .models import Agendamento, Cliente_Agendamento, Servico_Agendamento, Servico
+from .forms import FormService
 
 def get_usuario(username):
   user = User.objects.get(username=username)
@@ -31,14 +33,41 @@ def index(request):
     })    
 
 def horarios(request):
+    barbeiros = Barbeiro.objects.all()
+    services = Servico.objects.all()
+
+    dias = ['segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sabádo', 'domingo']
     minutos = ['00', '30']
     horarios = []
+    data_agendamento = []
+
     for i in range(7, 22):
         for j in range(2):
             horarios.append(f'{i}:{minutos[j]}')
 
+    agendamentos = Agendamento.objects.all()
+
+    for hora in horarios:
+        d = []
+        data = {
+            "hora": hora,
+        }
+        for dia in dias:
+            status = {
+                "dia": dia,
+                "status": False,
+            }
+            d.append(status)
+        data['disponibilidade'] = d
+        data_agendamento.append(data)
+
     return render(request, 'agendamento/data.html',{
+        "agendamentos": agendamentos,
         "horarios": horarios,
+        "data_agendamento": data_agendamento,
+        "dias": dias,
+        "barbeiros": barbeiros,
+        "servicos": services,
     })
 
 @login_required
@@ -68,15 +97,31 @@ def cadastro_barber(request):
     })
 
 def new_service(request):
-    return render(request, 'agendamento/gerente/new_service.html')
+    if request.method == "POST":
+        form_service = FormService(request.POST)
+        if form_service.is_valid():
+            form_service.save()
+            return HttpResponseRedirect(reverse('agendamento:home_gerente'))
+    else:
+        form_service = FormService()
+    return render(request, 'agendamento/gerente/new_service.html', {
+        "form_service": form_service,
+    })
 
 def barbeiros(request):
-    return render(request, 'agendamento/gerente/list_barber.html')
+    barbeiros = Barbeiro.objects.all()
+    return render(request, 'agendamento/gerente/list_barber.html', {
+        "barbeiros": barbeiros
+    })
 
 def services(request):
-    return render(request, 'agendamento/gerente/list_services.html')
+    services = Servico.objects.all()
+    return render(request, 'agendamento/gerente/list_services.html', {
+        "servicos" : services,
+    })
 
 def agendamentos(request):
+
     return render(request, 'agendamento/agendamentos.html')
 
 def perfil(request):

@@ -25,7 +25,10 @@
           </ul>
     
           <div class="col-md-3 text-end">
-            <button type="button" class="btn btn-outline-primary me-2"><a href="{% url 'logout' %}">sair</a></button>
+            <form action="{% url 'logout' %}" method="POST">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-outline-primary me-2">sair</button>
+            </form>
           </div>
         </header>
       </div>    
