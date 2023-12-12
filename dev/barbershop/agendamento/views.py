@@ -7,7 +7,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from cadastro.forms import FormBarbeiro, FormUser
 from .models import Agendamento, Cliente_Agendamento, Servico_Agendamento, Servico
-from .forms import FormService
+from .forms import FormService, FormAgendamento, FormCliente_agendamento, FormServico_agendamento
 
 def get_usuario(username):
   user = User.objects.get(username=username)
@@ -33,6 +33,27 @@ def index(request):
     })    
 
 def horarios(request):
+    if request.method == 'POST':
+        form_agendamento = FormAgendamento(request.POST)
+        form_cliente_agendamento = FormCliente_agendamento(request.POST)
+        form_servico_agendamento = FormServico_agendamento(request.POST)
+        if form_agendamento.is_valid() and form_cliente_agendamento.is_valid() and form_servico_agendamento.is_valid():
+            form_agendamento.save()
+            cli_agenda = form_cliente_agendamento.save(commit=False)
+            cliente = Cliente.objects.get(user=request.user)
+            cli_agenda.cpf_cliente = cliente
+            cli_agenda.save()
+            service_agend = form_servico_agendamento.save(commit=False)
+            id_agenda = form_agendamento.cleaned_data['id']
+            agendamento_current = Agendamento.objects.get(id=id_agenda)
+            service_agend.id_agendamento = agendamento_current
+            service_agend.save()
+            return HttpResponseRedirect(reverse('agendamento:index'))
+    else:
+        form_agendamento = FormAgendamento()
+        form_cliente_agendamento = FormCliente_agendamento()
+        form_servico_agendamento = FormServico_agendamento()
+
     barbeiros = Barbeiro.objects.all()
     services = Servico.objects.all()
 
@@ -68,6 +89,9 @@ def horarios(request):
         "dias": dias,
         "barbeiros": barbeiros,
         "servicos": services,
+        "form_servico_agendamento": form_servico_agendamento,
+        "form_agendamento": form_agendamento,
+        "form_cliente_agendamento": form_cliente_agendamento,
     })
 
 @login_required

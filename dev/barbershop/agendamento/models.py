@@ -3,8 +3,8 @@ from cadastro.models import Gerente, Cliente, Barbeiro
 
 class Agendamento(models.Model):
     id = models.IntegerField(unique=True, primary_key=True)
-    horario = models.DateField()
-    cpf_gerente = models.ForeignKey(Gerente, on_delete=models.CASCADE)
+    horario = models.TimeField()
+    data = models.DateField()
 
     def __str__(self):
         return f'agendamento no horario {self.horario}'
