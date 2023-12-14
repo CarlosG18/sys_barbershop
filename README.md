@@ -4,4 +4,4 @@ sistema de agendamento de serviços relacionados a salões de beleza - projeto d
 # Tópicos de desenvolvimento
 - [Engenharia de Requisitos](https://github.com/CarlosG18/sys_barbershop/tree/main/topicos/engenharia_requisitos/engenharia_requisitos.md)
 
-- [Modelagem do Banco de Dados](https://github.com/CarlosG18/sys_barbershop/blob/modelagem_bd/topicos/modelagem_bd/modelagem_bd.md)
+- [Modelagem do Banco de Dados](https://github.com/CarlosG18/sys_barbershop/blob/main/topicos/modelagem_bd/modelagem_bd.md)
