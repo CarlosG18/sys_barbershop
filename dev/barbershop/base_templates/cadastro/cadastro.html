@@ -1,0 +1,65 @@
+{% extends '../base_cadastro.html' %}
+
+{% block title %} Cadastro| Barbershop {% endblock %}
+{% block forms %}
+    <form class="d-flex flex-column justify-content-center align-items-center" action="{% url 'cadastro:cadastro' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% block title-form %} <h1 class="h3 mb-3 fw-normal">cadastro</h1> {% endblock %}
+        <div class="form-floating mb-3">
+            <div>
+                {{form_user.username.label}}
+            </div>
+            <div>
+                {{form_user.username}}
+            </div>
+        </div>
+        <div class="form-floating mb-2">
+            <div>
+                {{form_user.email.label}}
+            </div>
+            <div>
+                {{form_user.email}}
+            </div>
+        </div>
+        <div class="form-floating mb-2">
+            <div>
+                {{form_cliente.cpf.label}}
+            </div>
+            <div>
+                {{form_cliente.cpf}}
+            </div>
+        </div>
+        <div class="form-floating mb-2">
+            <div>
+                {{form_cliente.img.label}}
+            </div>
+            <div>
+                {{form_cliente.img}}
+            </div>
+        </div>
+        <div class="form-floating mb-2">
+            <div>
+                {{form_user.password.label}}
+            </div>
+            <div>
+                {{form_user.password}}
+            </div>
+        </div>
+        {% if form_user.errors or form_cliente.errors %}
+        <div class="errors">
+          {{form_cliente.errors}}  
+          {{form_user.errors}}
+        </div>
+        {% endif %}
+        
+        <button class="w-75 mt-2 mb-4 btn btn-lg btn-primary" type="submit">criar conta</button>
+            <div class="text-center mb-2">
+                <a href="{% url 'login' %}">já possui conta? clique aqui!</a>
+            </div>    
+            <div class="text-center">
+                <a href="{% url 'cadastro:gerente' %}">voce é um gerente do nosso sistema? clique aqui!</a>    
+            </div> 
+    </form>
+{% endblock %}
+
+

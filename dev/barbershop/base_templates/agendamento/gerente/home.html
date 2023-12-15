@@ -1,0 +1,41 @@
+{% extends './base_gerente.html' %}
+{% load static %}
+
+{% block title %}Home | Gerência {% endblock %}
+{% block style %}
+  <link rel="stylesheet" href="{% static 'gerente/home.css' %}">
+{% endblock %}
+
+{% block body %}
+    <div class="container p-4">
+
+    <header class="pb-3 mb-4 border-bottom">
+          <p class="fs-4">Olá {{request.user.username}}, seja bem vindo!</p>
+      </header>
+  
+      <div class="p-5 mb-4 bg-light rounded-3">
+        <div class="container-fluid py-5">
+          <h1 class="display-5 fw-bold">Adicionar novo Barbeiro</h1>
+          <p class="col-md-8 fs-4">adicione seu barbeiro com os dados pessoais...</p>
+          <button class="btn btn-primary btn-lg" type="button"><a style="color: white;" href="{% url 'agendamento:cadastro_barber' %}">cadastrar barbeiro</a></button>
+        </div>
+      </div>
+  
+      <div class="row align-items-md-stretch">
+        <div class="col-md-6">
+          <div class="h-100 p-5 text-white bg-dark rounded-3">
+            <h2>Adicione novos serviços</h2>
+            <p>adicione novos serviços...</p>
+            <button class="btn btn-light" type="button"><a style="color: blue;" href="{% url 'agendamento:new_service' %}">adicionar novo serviço</a></button>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="h-100 p-5 bg-light border rounded-3">
+            <h2>faça edições</h2>
+            <p>voce poderá alterar dados do barbeiro ou de um determinado serviço...</p>
+            <button class="btn btn-outline-secondary" type="button">realizar edições</button>
+          </div>
+        </div>
+      </div>    
+    </div>
+{% endblock %}

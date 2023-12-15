@@ -1,0 +1,49 @@
+{% extends '../base.html' %}
+{% load static %}
+
+{% block title %} Index | Barbershop {% endblock %}
+{% block styles %}
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  <link rel="stylesheet" href="{% static 'css/img.css' %}">
+{% endblock %}
+
+{% block body %}
+    <div class="container bg-light mb-5 border rounded-1 p-3 ">
+      <div class="container d-flex justify-content-between align-items-center">
+        <h2>Reserve seu horário já!</h2>
+        <button type="button" class="btn btn-success"><a style="color: white" href="{% url 'agendamento:horarios' %}">agendar</a></button>
+      </div>      
+    </div>
+
+    <div class="container bg-light border p-3 rounded-1 mb-5">
+      <h2>Nossos barbeiros</h2>
+      <div class="d-flex">
+          {% for barber in barbeiros %}
+              <div class="container bg-white me-2 d-flex justify-content-between align-items-center border p-3 mb-2 rounded-end shadow-sm">
+                  <div class="descricao d-flex align-items-center">
+                      <div class="box-image me-3">
+                          <img src="{{ barber.img.url }}" alt="">
+                      </div>
+                      {{barber.user.username}}
+                  </div>
+              </div>
+          {% endfor %}
+      </div>
+  </div>
+
+  <div class="container p-3 bg-light border mb-5 rounded-1">
+    <div class="d-flex justify-content-between mb-4">
+        <h2>Nossos serviços</h2>
+     </div>
+    <div class="d-flex">
+        {% for servico in servicos %}
+            <div class="d-flex me-3 bg-white justify-content-between align-items-center border p-3 mb-2 rounded-end shadow-sm">
+                <div class="d-flex flex-column">
+                    <p><b>Nome: </b>{{servico.nome}}</p>
+                    <p><b>preço: </b>{{servico.preco}}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

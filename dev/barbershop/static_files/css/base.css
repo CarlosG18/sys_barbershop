@@ -1,0 +1,20 @@
+/* cores bases do site:
+
+    Azul Marinho: #001F3F
+    Branco: #FFFFFF
+    Cinza Escuro: #333333
+    Verde Escuro: #006400
+    Marrom Tabaco: #8B4513
+*/
+
+:root{
+    --azul: #001F3F;
+    --branco: #FFFFFF;
+    --cinza_escuro: #333333;
+    --verde_escuro: #006400;
+    --marrom_tabaco: #8B4513;
+}
+
+a{
+    text-decoration: none !important;
+}
