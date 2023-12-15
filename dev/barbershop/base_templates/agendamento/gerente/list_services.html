@@ -7,7 +7,7 @@
 <div class="container">
     <div class="d-flex justify-content-between mb-4">
         <h1>listando os serviços cadastrados no sistema</h1>
-        <button type="button" class="btn btn-success"><a href="{% url 'agendamento:new_service' %}">adicionar</a></button>
+        <button type="button" class="btn btn-success"><a style="color: white" href="{% url 'agendamento:new_service' %}">adicionar</a></button>
     </div>
     <div class="container">
         {% for servico in servicos %}

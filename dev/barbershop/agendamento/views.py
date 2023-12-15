@@ -6,8 +6,9 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from cadastro.forms import FormBarbeiro, FormUser
-from .models import Agendamento, Cliente_Agendamento, Servico_Agendamento, Servico
-from .forms import FormService, FormAgendamento, FormCliente_agendamento, FormServico_agendamento
+from .models import Agendamento, Servico_Agendamento, Servico
+from .forms import FormService, FormAgendamento, FormServico_agendamento
+import logging
 
 def get_usuario(username):
   user = User.objects.get(username=username)
@@ -28,70 +29,50 @@ def direcion_home(request):
 @login_required
 def index(request):
     barbeiros = Barbeiro.objects.all()
+    servicos = Servico.objects.all()
     return render(request, 'agendamento/index.html', {
         "barbeiros": barbeiros,
+        "servicos": servicos,
     })    
+
+def check_agendamento(horario, data, barbeiro):
+    agendamento = Agendamento.objects.filter(horario=horario,data=data, barbeiro=barbeiro).exists()
+    return agendamento
+
 
 def horarios(request):
     if request.method == 'POST':
         form_agendamento = FormAgendamento(request.POST)
-        form_cliente_agendamento = FormCliente_agendamento(request.POST)
-        form_servico_agendamento = FormServico_agendamento(request.POST)
-        if form_agendamento.is_valid() and form_cliente_agendamento.is_valid() and form_servico_agendamento.is_valid():
-            form_agendamento.save()
-            cli_agenda = form_cliente_agendamento.save(commit=False)
-            cliente = Cliente.objects.get(user=request.user)
-            cli_agenda.cpf_cliente = cliente
-            cli_agenda.save()
-            service_agend = form_servico_agendamento.save(commit=False)
-            id_agenda = form_agendamento.cleaned_data['id']
-            agendamento_current = Agendamento.objects.get(id=id_agenda)
-            service_agend.id_agendamento = agendamento_current
-            service_agend.save()
-            return HttpResponseRedirect(reverse('agendamento:index'))
+        form_servico = FormServico_agendamento(request.POST)
+        if form_agendamento.is_valid() and form_servico.is_valid():
+            check_agenda = check_agendamento(form_agendamento.cleaned_data['horario'], form_agendamento.cleaned_data['data'], form_agendamento.cleaned_data['barbeiro'])
+            if not(check_agenda):
+                agendamento = form_agendamento.save(commit=False)
+                user = User.objects.get(username=request.user.username)
+                cliente = Cliente.objects.get(user=user)
+                agendamento.cliente = cliente
+                agendamento.save()
+                agendamento_current = Agendamento.objects.last()
+                servico = form_servico.save(commit=False)
+                servico.id_agendamento = agendamento_current
+                servico.save()
+                return HttpResponseRedirect(reverse('agendamento:index'))
+            else:
+                return HttpResponseRedirect(reverse('agendamento:horarios'))
     else:
         form_agendamento = FormAgendamento()
-        form_cliente_agendamento = FormCliente_agendamento()
         form_servico_agendamento = FormServico_agendamento()
 
-    barbeiros = Barbeiro.objects.all()
     services = Servico.objects.all()
-
-    dias = ['segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sabádo', 'domingo']
-    minutos = ['00', '30']
-    horarios = []
-    data_agendamento = []
-
-    for i in range(7, 22):
-        for j in range(2):
-            horarios.append(f'{i}:{minutos[j]}')
-
     agendamentos = Agendamento.objects.all()
-
-    for hora in horarios:
-        d = []
-        data = {
-            "hora": hora,
-        }
-        for dia in dias:
-            status = {
-                "dia": dia,
-                "status": False,
-            }
-            d.append(status)
-        data['disponibilidade'] = d
-        data_agendamento.append(data)
-
+    barbeiros = Barbeiro.objects.all()
+        
     return render(request, 'agendamento/data.html',{
         "agendamentos": agendamentos,
-        "horarios": horarios,
-        "data_agendamento": data_agendamento,
-        "dias": dias,
         "barbeiros": barbeiros,
         "servicos": services,
         "form_servico_agendamento": form_servico_agendamento,
         "form_agendamento": form_agendamento,
-        "form_cliente_agendamento": form_cliente_agendamento,
     })
 
 @login_required
@@ -145,8 +126,12 @@ def services(request):
     })
 
 def agendamentos(request):
-
-    return render(request, 'agendamento/agendamentos.html')
+    user = User.objects.get(username=request.user.username)
+    agendamentos = Agendamento.objects.filter(cliente__user=user)
+    
+    return render(request, 'agendamento/agendamentos.html', {
+        "agendamentos": agendamentos,
+    })
 
 def perfil(request):
     return render(request, 'agendamento/perfil.html')

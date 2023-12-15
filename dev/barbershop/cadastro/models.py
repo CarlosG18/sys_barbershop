@@ -27,7 +27,6 @@ class Cliente(Usuario):
 
 class Gerente(Usuario):
     img = models.ImageField(upload_to="gerente/", default="avatar_default.png")
-    codigo = models.CharField(max_length=8)
     
     def __str__(self):
         return f'gerente {self.user.username}'

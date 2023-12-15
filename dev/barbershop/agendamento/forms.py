@@ -1,5 +1,5 @@
 from django import forms
-from .models import Servico, Servico_Agendamento, Agendamento, Cliente_Agendamento
+from .models import Servico, Agendamento,Servico_Agendamento
 
 class FormService(forms.ModelForm):
     class Meta:
@@ -14,14 +14,9 @@ class FormServico_agendamento(forms.ModelForm):
 class FormAgendamento(forms.ModelForm):
     class Meta:
         model = Agendamento
-        exclude = ['id', 'cpf_gerente']
+        exclude = ['id', 'cliente']
         widgets = {
             'horario': forms.TimeInput(attrs={'type':'time'}),
             'data': forms.DateInput(attrs={'type': 'date'})
         }
-
-class FormCliente_agendamento(forms.ModelForm):
-    class Meta:
-        model = Cliente_Agendamento
-        exclude = ['cpf_cliente', 'id_agendamento']
 

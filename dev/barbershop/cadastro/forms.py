@@ -10,12 +10,12 @@ class FormUser(forms.ModelForm):
 class FormCliente(forms.ModelForm):
     class Meta:
         model = Cliente
-        exclude = ['user', 'type_cliente']
+        exclude = ['user', 'type_cliente', 'img']
 
 class FormGerente(forms.ModelForm):
     class Meta:
         model = Gerente
-        exclude = ['user', 'type_cliente']
+        exclude = ['user', 'type_cliente', 'img']
 
 class FormBarbeiro(forms.ModelForm):
     class Meta:

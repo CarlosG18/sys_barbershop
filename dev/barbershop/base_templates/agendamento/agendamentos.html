@@ -4,7 +4,24 @@
 {% block title %} Agendamentos | Barbershop {% endblock %}
 
 {% block body %}
-  <div class="container">
-    <h1>agendamentos ativos</h1>
+  <div class="container bg-light mb-5 border rounded-1 p-3 ">
+    <h2>agendamentos ativos</h2>
+    <div class="container d-flex justify-content-around align-items-center mt-3">
+      {% if agendamentos %}
+        {% for agendamento in agendamentos %}
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Agendamento {{forloop.counter}}</h5>
+              <p class="card-text"><b>barbeiro:</b> {{agendamento.barbeiro.user.username}}</p>
+              <p class="card-text"><b>data: </b>{{agendamento.data}}</p>
+              <p class="card-text"><b>horario: </b>{{agendamento.horario}}</p>
+              <a href="#" class="btn btn-primary">detalhes</a>
+            </div>
+          </div>
+        {% endfor %}
+      {% else %}
+          <p><b>você não possui agendamentos realizados!</b></p>
+      {% endif %}
+    </div>
   </div>
 {% endblock %}

@@ -10,9 +10,7 @@
     <div class="container p-4">
 
     <header class="pb-3 mb-4 border-bottom">
-        <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
-          <span class="fs-4">Olá {{request.user.username}}, seja bem vindo!</span>
-        </a>
+          <p class="fs-4">Olá {{request.user.username}}, seja bem vindo!</p>
       </header>
   
       <div class="p-5 mb-4 bg-light rounded-3">
@@ -28,7 +26,7 @@
           <div class="h-100 p-5 text-white bg-dark rounded-3">
             <h2>Adicione novos serviços</h2>
             <p>adicione novos serviços...</p>
-            <button class="btn btn-outline-light" type="button"><a style="color: blue;" href="{% url 'agendamento:new_service' %}">adicionar novo serviço</a></button>
+            <button class="btn btn-light" type="button"><a style="color: blue;" href="{% url 'agendamento:new_service' %}">adicionar novo serviço</a></button>
           </div>
         </div>
         <div class="col-md-6">

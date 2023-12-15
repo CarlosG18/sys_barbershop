@@ -8,7 +8,10 @@
 
 {% block body %}
     <div class="container">
-        <h1>listando barbeiros cadastrados no sistema</h1>
+        <div class="d-flex container justify-content-between align-items-center mb-4">
+            <h1>listando barbeiros cadastrados no sistema</h1>
+            <button type="button" class="btn btn-success"><a style="color: white" href="{% url 'agendamento:cadastro_barber' %}">adicionar</a></button>
+        </div>
         <div class="container">
             {% for barber in barbeiros %}
                 <div class="container d-flex justify-content-between align-items-center border p-3 mb-2 rounded-end shadow-sm">

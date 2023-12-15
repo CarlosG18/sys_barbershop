@@ -3,17 +3,25 @@
 {% block title %} Login | Barbershop {% endblock %}
 
 {% block forms %}
-    <form action="{% url 'login' %}" method="POST" enctype="multipart/form-data">
+    <form class="text-center" action="{% url 'login' %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {% block title-form %} <h1 class="h3 mb-3 fw-normal">Login</h1> {% endblock %}
-        {{form}}
-        
-        <button class="w-100 btn btn-lg btn-primary" type="submit">entrar</button>
+        <div class="container mb-3 w-100">
+            {{form.username}}
+        </div>
+        <div class="container mb-3">
+            {{form.password}}
+        </div>
+        <button class="w-100 mb-4 btn btn-lg btn-primary" type="submit">entrar</button>
     </form>
 {% endblock %}
 
 
 {% block links %}
-    <a class="container" href="{% url 'cadastro:cadastro' %}">não possui conta? clique aqui!</a>
-    <a class="container" href="{% url 'cadastro:gerente' %}">voce é um gerente do nosso sistema? clique aqui!</a>
+    <div class="container mt-4 text-center">
+        <a  href="{% url 'cadastro:cadastro' %}">não possui conta? clique aqui!</a>
+    </div>
+    <div class="mt-2 text-center">
+        <a class="container" href="{% url 'cadastro:gerente' %}">voce é um gerente do nosso sistema? clique aqui!</a>
+    </div>
 {% endblock %}

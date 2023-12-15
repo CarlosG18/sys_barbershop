@@ -62,11 +62,8 @@
         {% endif %}
         
         <button class="w-100 btn btn-lg btn-primary" type="submit">criar conta</button>
+        <div class="text-center mt-3 mb-2">
+            <a href="{% url 'login' %}">já possui conta? clique aqui!</a>
+        </div>    
     </form>
 {% endblock %}
-
-{% block links %}
-    <a href="{% url 'login' %}">você não é gerente? clique aqui!</a>
-    <a href="{% url 'cadastro:gerente' %}">voce é um gerente do nosso sistema? clique aqui!</a>
-{% endblock %} 
-
