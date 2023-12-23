@@ -58,22 +58,33 @@ def horarios(request):
                 servico.save()
                 return HttpResponseRedirect(reverse('agendamento:index'))
             else:
+                request.session['erro_agendamento'] = {
+                    "name": "erro no agendamento",
+                    "message": "não foi possivel concluir seu agendamento pois houve um conflito de datas e barbeiros!"
+                }
                 return HttpResponseRedirect(reverse('agendamento:horarios'))
     else:
         form_agendamento = FormAgendamento()
         form_servico_agendamento = FormServico_agendamento()
 
-    services = Servico.objects.all()
-    agendamentos = Agendamento.objects.all()
-    barbeiros = Barbeiro.objects.all()
+        services = Servico.objects.all()
+        agendamentos = Agendamento.objects.all()
+        barbeiros = Barbeiro.objects.all()
         
-    return render(request, 'agendamento/data.html',{
-        "agendamentos": agendamentos,
-        "barbeiros": barbeiros,
-        "servicos": services,
-        "form_servico_agendamento": form_servico_agendamento,
-        "form_agendamento": form_agendamento,
-    })
+        if request.session.get('erro_agendamento'):
+            dados_erro = request.session.get('erro_agendamento')
+            request.session['erro_agendamento'] = None
+        else:
+            dados_erro = None
+
+        return render(request, 'agendamento/data.html',{
+            "agendamentos": agendamentos,
+            "barbeiros": barbeiros,
+            "servicos": services,
+            "form_servico_agendamento": form_servico_agendamento,
+            "form_agendamento": form_agendamento,
+            "erro_agenda": dados_erro,
+        })
 
 @login_required
 def home_gerente(request):

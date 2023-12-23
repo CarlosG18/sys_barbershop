@@ -2,7 +2,7 @@ from django.db import models
 from cadastro.models import Gerente, Cliente, Barbeiro
 
 class Agendamento(models.Model):
-    id = models.IntegerField(unique=True, primary_key=True)
+    id = models.AutoField(primary_key=True)
     horario = models.TimeField()
     data = models.DateField()
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
@@ -12,7 +12,7 @@ class Agendamento(models.Model):
         return f'agendamento no horario {self.horario}'
 
 class Servico(models.Model):
-    id = models.IntegerField(unique=True, primary_key=True)
+    id = models.AutoField(primary_key=True)
     nome = models.CharField(max_length=100)
     descricao = models.TextField()
     tipo = models.CharField(max_length=100)
