@@ -34,7 +34,7 @@ vou descrever aqui algumas features que o sistema poderá receber futuramente.
 
 - Criar uma página principal, que contém os aspectos centrais da aplicação, juntamente com um link para a área de login;
 - alterar a identidade visual do site: pesquisar algumas fontes específicas de salão, e cores que remetem.
-- melhorar como os serviços são apresentados para o cliente/gerente;
+- melhorar como os serviçovenvs são apresentados para o cliente/gerente;
 - melhorar a view principal do cliente;
 - melhorar a view de agendamentos do cliente;
 - melhorar a forma de mostrar os horarios já agendados.

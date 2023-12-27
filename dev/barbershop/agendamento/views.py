@@ -9,6 +9,7 @@ from cadastro.forms import FormBarbeiro, FormUser
 from .models import Agendamento, Servico_Agendamento, Servico
 from .forms import FormService, FormAgendamento, FormServico_agendamento
 import logging
+from django.views.generic import ListView
 
 def get_usuario(username):
   user = User.objects.get(username=username)
@@ -149,3 +150,16 @@ def perfil(request):
 
 def relatorios(request):
     return render(request, 'agendamento/gerente/relatorios.html')
+
+def Detailbarber(request, id):
+    barbeiro = Barbeiro.objects.get(id=id)
+    return render(request, 'agendamento/gerente/detail_barber.html', {
+        "barbeiro": barbeiro,
+    })
+
+def DelBarber(request, id):
+    barbeiro = Barbeiro.objects.get(id=id)
+    user = User.objects.get(username=barbeiro.user.username)
+    user.delete()
+    barbeiro.delete()
+    return HttpResponseRedirect(reverse('agendamento:barbeiros'))

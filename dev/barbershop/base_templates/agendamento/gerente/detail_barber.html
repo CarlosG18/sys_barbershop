@@ -1,0 +1,26 @@
+{% extends './base_gerente.html' %}
+{% load static %}
+
+{% block title %}Detalhes - Barbeiro{% endblock %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/img.css' %}">
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="d-flex container justify-content-between align-items-center mb-4">
+            <h1>detalhes do barbeiro {{barbeiro.user.username}}</h1>
+            <button type="button" class="btn btn-success"><a style="color: white" href="{% url 'agendamento:cadastro_barber' %}">adicionar</a></button>
+        </div>
+        <div class="container">
+                <div class="container d-flex justify-content-between align-items-center border p-3 mb-2 rounded-end shadow-sm">
+                    <div class="descricao d-flex align-items-center">
+                        <div class="box-image me-3">
+                            <img src="{{ barbeiro.img.url }}" alt="">
+                        </div>
+                        {{barbeiro.user.username}}
+                    </div>
+                </div>
+        </div>
+    </div>
+{% endblock %}

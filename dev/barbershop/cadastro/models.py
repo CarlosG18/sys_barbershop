@@ -19,6 +19,7 @@ class Usuario(models.Model):
         abstract = True
 
 class Cliente(Usuario):
+    id = models.AutoField(primary_key=True)
     img = models.ImageField(upload_to="cliente/", default="avatar_default.png")
     
     def __str__(self):
@@ -26,12 +27,14 @@ class Cliente(Usuario):
 
 
 class Gerente(Usuario):
+    id = models.AutoField(primary_key=True)
     img = models.ImageField(upload_to="gerente/", default="avatar_default.png")
     
     def __str__(self):
         return f'gerente {self.user.username}'
 
 class Barbeiro(Usuario):
+    id = models.AutoField(primary_key=True)
     img = models.ImageField(upload_to="barbeiro/", default="avatar_default.png")
     cpf_gerente = models.ForeignKey(Gerente, on_delete=models.CASCADE)
 
