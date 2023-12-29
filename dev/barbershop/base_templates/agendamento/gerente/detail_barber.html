@@ -8,17 +8,34 @@
 
 {% block body %}
     <div class="container">
-        <div class="d-flex container justify-content-between align-items-center mb-4">
-            <h1>detalhes do barbeiro {{barbeiro.user.username}}</h1>
-            <button type="button" class="btn btn-success"><a style="color: white" href="{% url 'agendamento:cadastro_barber' %}">adicionar</a></button>
+        <div class="d-flex flex-column container mb-4">
+            <h2>barbeiro {{barbeiro.user.username}}</h2>
+            <p class="border-bottom pb-3">detalhes</p>
         </div>
         <div class="container">
                 <div class="container d-flex justify-content-between align-items-center border p-3 mb-2 rounded-end shadow-sm">
-                    <div class="descricao d-flex align-items-center">
+                    <div class="descricao d-flex flex-column">
                         <div class="box-image me-3">
                             <img src="{{ barbeiro.img.url }}" alt="">
                         </div>
-                        {{barbeiro.user.username}}
+                        <div class="container">
+                            <p>gerente responsavel: {{barbeiro.cpf_gerente}}</p>
+                        </div>
+                        <div class="container">
+                            <p>username: {{barbeiro.user.username}}</p>
+                        </div>
+                        <div class="container">
+                            <p>email: {{barbeiro.user.email}}</p>
+                        </div>
+                        <div class="container">
+                            <p>id: {{barbeiro.id}}</p>
+                        </div>
+                        <div class="container">
+                            <p>cpf: {{barbeiro.cpf}}</p>
+                        </div>
+                        <div class="container">
+                            <p>senha: {{barbeiro.user.password}}</p>
+                        </div>
                     </div>
                 </div>
         </div>

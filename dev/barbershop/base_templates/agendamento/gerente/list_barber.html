@@ -23,11 +23,11 @@
                     </div>
                     <div class="actions d-flex justify-content-center align-itens-center ">
                         <button type="button" class="btn btn-primary me-3"><a style="color: white" href="{% url 'agendamento:detailbarber' barber.id %}">detalhes</a></button>
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">apagar</button>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal{{barber.user.username}}">apagar</button>
                     </div>
   
                     <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="exampleModal{{barber.user.username}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">

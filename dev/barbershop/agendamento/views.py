@@ -40,6 +40,62 @@ def check_agendamento(horario, data, barbeiro):
     agendamento = Agendamento.objects.filter(horario=horario,data=data, barbeiro=barbeiro).exists()
     return agendamento
 
+def horariosOcupados(agendamentos):
+    dados = []
+    dias = ['segunda','terça','quarta','quinta','sexta','sabádo','domingo']
+    for agendamento in agendamentos:
+        info = {
+            "dia": agendamento.data.day,
+            "mes": agendamento.data.month,
+            "ano": agendamento.data.year,
+            "dia_semana": dias[agendamento.data.weekday()],
+            "hora": agendamento.horario.hour,
+            "minuto": agendamento.horario.minute,
+            "barbeiro": agendamento.barbeiro,
+        }
+        dados.append(info)
+    return dados
+
+
+def gethoras(hr_min, hr_max):
+    manha = []
+    tarde = []
+    noite = []
+    for i in range(hr_min, hr_max):
+        if i <= 12:
+            hora = {
+                "hora": i,
+                "min": 0,
+            }
+            hora1 = {
+                "hora": i,
+                "min": 30,
+            }
+            manha.append(hora)
+            manha.append(hora1)
+        elif i <= 18:
+            hora = {
+                "hora": i,
+                "min": 0,
+            }
+            hora1 = {
+                "hora": i,
+                "min": 30,
+            }
+            tarde.append(hora)
+            tarde.append(hora1)
+        else:
+            hora = {
+                "hora": i,
+                "min": 0,
+            }
+            hora1 = {
+                "hora": i,
+                "min": 30,
+            }
+            noite.append(hora)
+            noite.append(hora1)    
+    return (manha,tarde,noite)
 
 def horarios(request):
     if request.method == 'POST':
@@ -78,6 +134,10 @@ def horarios(request):
         else:
             dados_erro = None
 
+        manha, tarde, noite = gethoras(7,23)
+        dias = ['segunda','terça','quarta','quinta','sexta','sabádo','domingo']
+        horarios_ocup = horariosOcupados(agendamentos)
+
         return render(request, 'agendamento/data.html',{
             "agendamentos": agendamentos,
             "barbeiros": barbeiros,
@@ -85,6 +145,11 @@ def horarios(request):
             "form_servico_agendamento": form_servico_agendamento,
             "form_agendamento": form_agendamento,
             "erro_agenda": dados_erro,
+            "manha": manha,
+            "tarde": tarde,
+            "noite": noite,
+            "dias": dias,
+            "horas_ocup": horarios_ocup,
         })
 
 @login_required
